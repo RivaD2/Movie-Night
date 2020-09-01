@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--head from partial goes here-->
+  <title>Watch List</title>
+</head>
+<body>
+  <main>
+    <h1>Watch List</h1>
+
+
+    <% for(let i=0; i < movieObject.length; i++) { %>
+      <div class="watchlist-movie-container">
+        <div class="watchlist-image-container">
+          <img src="<% movieObject[i].poster%>" class="movie-poster" alt="movie poster">
+        </div>
+
+        <div class="watchlist-movie-title">
+          <% movieObject[i].title %>
+        </div>
+      </div>
+
+      <div class="watchlist-delete-movie">
+        <% console.log(movieObject) %>
+        <form action="/pages/watchlist/<%= movieObject %>?_method=DELETE"
+         method="POST"><input type="submit" value="Delete From Watchlist"></form>
+      </div>
+
+  </main>
+</body>
+</html>
