@@ -13,7 +13,7 @@ const app = express();
 const methodOverride = require('method-override');
 const client = new pg.Client()//database url here;
 client.on('error', error => console.error(error));
-// const OMDB_API_KEY = process.env.OMDB_API_KEY;
+const OMDB_API_KEY = process.env.OMDB_API_KEY;
 //pass in object argument from movieObject
 // const movieSearchUrl = `http://www.omdbapi.com/?i=tt3896198&apikey=${OMDB_API_KEY}`;
 // const posterSearchUrl = `http://img.omdbapi.com/?i=tt3896198&h=600&apikey=${OMDB_API_KEY}`;
@@ -48,12 +48,37 @@ client.connect()
 // app.delete('/api/movies/:id', (req, res));
 
 //Functions
-// function handleError(error, res) {
-//   console.error(error);
-//   res.render('error', {error});
-// }
+function handleError(error, res) {
+  console.error(error);
+  res.render('error', {error});
+}
 
-const movieObject = [ {id:1,title:2 } ];
+/*****************************ROUTES */
+app.get('/detail/:id', (req, res) => {
+  const movies = movieObject.find(m => m.id === parseInt(req.params.id));
+  if(!movies)res.status(404).send('The movie with the given id is not found');
+
+
+
+app.post('/detail', (req, res) => {
+  const {id, title, poster,rating,plot, actors, genre, username} = req.body;
+  const values = [id, title, poster, rating, plot, actors, genre, username];
+  const mySql = `INSERT INTO movies (id, title, poster, rating, plot, actors, genre, username) VALUES ($1, $2, $3,$4, $5, $6, $7, $8)`;
+  client.query(mySql, values)
+    .then( result => {
+      res.redirect('/pages/watchlist', {movieObject:result.rows});
+    })
+    .catch(error => {
+      handleError(error, res);
+    });
+});
+
+
+
+
+
+
+const movieObject = [ {id:1, title:2 } ]; //an array of objects
 
 function Movie(movieObject){
   //need to replace with more precise values
