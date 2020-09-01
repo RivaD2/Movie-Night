@@ -1,0 +1,32 @@
+{
+  "name": "movie-night",
+  "version": "1.0.0",
+  "description": "Riva Davidowski, Darius Pasilaban, Krystian Francuz-Harris, Mike Wohl.",
+  "main": "server.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "method-override": "^3.0.0",
+    "nodemon": "^2.0.4",
+    "pg": "^8.3.3",
+    "postgres": "^1.0.2",
+    "superagent": "^6.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/team-squirtle-301d65/Movie-Night.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/team-squirtle-301d65/Movie-Night/issues"
+  },
+  "homepage": "https://github.com/team-squirtle-301d65/Movie-Night#readme"
+}
