@@ -49,6 +49,7 @@ Correct username will be displayed at the top of the page
 Correct User watchlist is generated once logged in
 
 
+
 *As a user, I want to be able to search for movies and get movie details.*
 
 Feature Tasks:
@@ -61,6 +62,7 @@ User will be able to scroll horizontally through the list of movies
 User will be able to click on a movie poster and be directed to a movie detail page. 
 
 
+
 *As a user, I want to be able to save movies to my personal watchlist.*
 
 Feature Tasks:
@@ -71,6 +73,7 @@ Once user clicks on ‘add to watchlist’, correct movie will be added to user�
 User’s watchlist persists. 
 
 
+
 *As a user, I want to be able to view my watchlist on a separate page.*
 
 Feature Tasks:
@@ -78,6 +81,8 @@ User will be able to click ‘My Watchlist’ to see all of their saved movies.
 
 Acceptance Tasks:
 Once user clicks ‘My Watchlist’, their saved movies are displayed. 
+
+
 
 *As a user, I want to be able to sort/edit my watchlist.*
 
@@ -89,6 +94,8 @@ User will be able to remove saved movies from watchlist.
 Acceptance Tasks:
 Once user sorts by genre, saved movies are sorted by correct genre.
 Once user clicks ‘remove from watchlist’ correct movie is removed from the watchlist
+
+
 
 ---
 
