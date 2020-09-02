@@ -31,9 +31,10 @@ app.use(methodOverride('_method'));
 app.use(express.static('./public'));
 // app.get('/api/movies/:id', getSingleMovie);
 
-app.get('/', (req, res) => {
-  res.send('hello');
-});
+// app.get('/', (req, res) => {
+//   res.send('hello');
+// });
+//commented test route out so I could see actual homepage 
 // res.render('pages/index'));
 
 //Server
@@ -67,7 +68,7 @@ app.get('/detail/:id', (req, res) => {
       if(!result)res.status(404).send('The movie with the given id is not found');
       console.log(result);
       // send whatever pages/detail needs to render data
-      res.render('pages/detail', {movie: result});
+      res.render('pages/detail', {movie: result.rows[0]});
     })
     .catch(error => {
       console.log(error);
