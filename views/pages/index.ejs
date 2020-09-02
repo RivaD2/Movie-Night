@@ -36,15 +36,15 @@
         <div class="container">
         <% for(let movie of movies){ %>
 
-          <div>
-            
-            <img src="<%= movie.poster %>"> 
-            <!-- <h2> <%= movie.title %> </h2> -->
-            <p> <%= movie.release_date %> </p> 
-            <p> <%= movie.vote_average %> </p> 
-            <!-- <p> <%= movie.overview %> </p>  -->
-          </div>
-
+            <div>
+              <a href="/detail">
+                <img src="<%= movie.poster %>"> 
+              </a>
+              <!-- <h2> <%= movie.title %> </h2> -->
+              <p> <%= movie.release_date %> </p> 
+              <p> <%= movie.vote_average %> </p> 
+              <!-- <p> <%= movie.overview %> </p>  -->
+            </div>
         <% } %>
 
         </div>
