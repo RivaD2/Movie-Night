@@ -108,6 +108,7 @@ function Movie(movieObject){
  
 }
 
+
 function renderHomepage(req,res){
   // const movieSearchUrl = `https://api.themoviedb.org/3/movie/3/recommendations?api_key=${MOVIE_API_KEY}&language=en-US&page=1`;
 
@@ -127,5 +128,6 @@ function renderHomepage(req,res){
     .catch();
 
 }
+
 
 
