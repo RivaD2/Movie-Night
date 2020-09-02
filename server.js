@@ -41,7 +41,7 @@ client.connect()
   });
 
 //Routes
-app.get('/api/movies', (req, res));
+// app.get('/api/movies', (req, res));
 // app.get('api/movies/:id', (req, res));
 // app.post('/api/movies', (req, res));
 // app.delete('/api/movies/:id', (req, res));
@@ -55,7 +55,7 @@ function handleError(error, res) {
 /*****************************ROUTES */
 app.get('/detail/:id', (req, res) => {
   const movies = movieObject.find(m => m.id === parseInt(req.params.id));
-  if(!movies)res.status(404).send('The movie with the given id is not found');
+  if(!movies)res.status(404).send('The movie with the given id is not found')});
 
 
 
@@ -84,5 +84,4 @@ function Movie(movieObject){
   const movieSearchUrl = `http://www.omdbapi.com/?i=tt3896198&apikey=${OMDB_API_KEY}&page=1`;
   
     res.render('pages/index.ejs');
-  };
-}
+  }
