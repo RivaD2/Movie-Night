@@ -3,7 +3,7 @@
 //Packages
 const express = require('express');
 const cors = require('cors');
-// const superagent = require('superagent');
+const superagent = require('superagent');
 const pg = require('pg');
 require('dotenv').config();
 
@@ -18,7 +18,7 @@ client.on('error', error => console.error(error));
 
 const API_KEY = process.env.API_KEY;
 //pass in object argument from movieObject
-const movieSearchUrl = `https://api.themoviedb.org/3/discover/movie/?certification_country=US&sort_by=vote_average&api_key=${API_KEY}&vote_count.gte=25&vote_average.gte=7.5`;
+
 
 
 
@@ -28,7 +28,9 @@ app.use(express.urlencoded({extended: true}));
 app.use(cors());
 app.use(express.static('./public'));
 app.use(methodOverride('_method'));
+app.use(express.static('./public'));
 // app.get('/api/movies/:id', getSingleMovie);
+
 app.get('/', (req, res) => {
   res.send('hello');
 });
@@ -98,12 +100,34 @@ const movieObject = [ {id:1,title:2 } ];
 function Movie(movieObject){
   //need to replace with more precise values
   this.title = movieObject.title;
-  this.poster = movieObject.poster_path;
+  this.poster = 'https://image.tmdb.org/t/p/w600_and_h900_bestv2' + movieObject.poster_path;
   this.vote_average = movieObject.vote_average;
   this.overview = movieObject.overview;
   this.release_date = movieObject.release_date;
+
+ 
 }
+
+
 function renderHomepage(req,res){
-  const movieSearchUrl = `http://www.omdbapi.com/?i=tt3896198&apikey=${OMDB_API_KEY}&page=1`;
-  res.render('pages/index.ejs');
+  // const movieSearchUrl = `https://api.themoviedb.org/3/movie/3/recommendations?api_key=${MOVIE_API_KEY}&language=en-US&page=1`;
+
+  const movieSearchUrl =  `https://api.themoviedb.org/3/discover/movie/?certification_country=US&sort_by=vote_average&api_key=82d4270c35eb3e4492fa5462bb89256d&vote_count.gte=15&vote_average.gte=8&primary_release_date.gte=2018-01-01`;
+
+  superagent.get(movieSearchUrl)
+    .then(APIMovieData => {
+
+      // console.log(APIMovieData);
+      const movieArr = APIMovieData.body.results.map(movieData => new Movie(movieData));
+
+
+      res.render('pages/index.ejs', { movies : movieArr});
+
+
+    })
+    .catch();
+
 }
+
+
+
