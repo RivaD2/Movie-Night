@@ -13,7 +13,7 @@ const app = express();
 const methodOverride = require('method-override');
 const client = new pg.Client()//database url here;
 client.on('error', error => console.error(error));
-const MOVIE_API_KEY = process.env.MOVIE_API_KEY;
+const API_KEY = process.env.API_KEY;
 //pass in object argument from movieObject
 
 
