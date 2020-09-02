@@ -54,7 +54,10 @@ function handleError(error, res) {
 }
 /*****************************ROUTES */
 app.get('/detail/:id', (req, res) => {
-  const mySql = `SELECT * FROM movies WHERE id='${req.params.id}';`;
+  const mySql = `SELECT * FROM movies WHERE id=1;`;
+  //'${req.params.id}' removed from mySql to figure out how to get id arg into sql query
+  //I am connecting to the database successfully but there is nothing in it. So I need to get it seeded.
+  console.log(mySql);
   client.query(mySql)
     .then( result => {
       //const movies = movieObject.find(m => m.id === parseInt(req.params.id));
@@ -63,6 +66,7 @@ app.get('/detail/:id', (req, res) => {
       res.render('pages/detail', {movie: result});
     })
     .catch(error => {
+      console.log(error);
       handleError(error, res);
     });
 });

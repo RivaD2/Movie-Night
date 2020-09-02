@@ -6,14 +6,15 @@
 }
 
 .detail-container { /*parent container*/
-  min-height: 100vh; /*this is viewport height, it will need to be 
-  smaller when the header partial comes in */
+  min-height: calc(100vh - 0px); /*this is viewport height, it will need to be smaller when the header partial comes in. This is saying the the minimum height will be 100vh minus some pixels. So when the header comes in, change the 0px to the header size. */
   min-width: 100vw;
   background-color: rgba(0,0,0,0.8);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-top: 24px;
+  padding-bottom: 48px;
 } 
 
 .detail-section {
@@ -33,4 +34,22 @@
   font-family: sans-serif;
   max-width: 500px;
   text-align: justify; /* left and right side of text description aligned*/
+  color: #bbbbbb;
 }
+.detail-add-button {
+  width: 260px;
+  height: 60px;
+  border: solid 2px rgb(230, 222, 222);
+  background-color: rgba(25, 25, 25, 0.4);
+  color: rgb(230, 222, 222);
+  padding: 8px 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.detail-add-button:hover{
+  border-color:rgb(31, 174, 231);
+  color:rgb(31, 174, 231);
+  background-color: black;
+}
+/* DETAILS.EJS PAGE CODE ABOVE BY RIVA ************************************************
