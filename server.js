@@ -54,15 +54,17 @@ function handleError(error, res) {
 }
 /*****************************ROUTES */
 app.get('/detail/:id', (req, res) => {
-  const mySql = `SELECT * FROM movies WHERE id=1;`;
+  const mySql = `SELECT * FROM movies WHERE id=$1;`;
+  const id = req.params.id;
   //'${req.params.id}' removed from mySql to figure out how to get id arg into sql query
   //I am connecting to the database successfully but there is nothing in it. So I need to get it seeded.
   console.log(mySql);
-  client.query(mySql)
+  client.query(mySql, [id])
     .then( result => {
       //const movies = movieObject.find(m => m.id === parseInt(req.params.id));
       if(!result)res.status(404).send('The movie with the given id is not found');
       console.log(result);
+      // send whatever pages/detail needs to render data
       res.render('pages/detail', {movie: result});
     })
     .catch(error => {
@@ -76,10 +78,11 @@ app.get('/detail/:id', (req, res) => {
 
 app.post('/detail', (req, res) => {
   const {id, title, poster,rating,plot, actors, genre, username} = req.body;
-  const values = [id, title, poster, rating, plot, actors, genre, username];
-  const mySql = `INSERT INTO movies (id, title, poster, vote_average, overview, release_data) VALUES ($1, $2, $3,$4, $5, $6)`;
+  const values = [title, poster, rating, plot, actors, genre, username];
+  const mySql = `INSERT INTO movies (title, poster, vote_average, overview, release_date) VALUES ($1, $2, $3,$4, $5, $6)`;
   client.query(mySql, values)
     .then( result => {
+      // 
       res.redirect('/pages/watchlist', {movieObject:result.rows});
     })
     .catch(error => {
