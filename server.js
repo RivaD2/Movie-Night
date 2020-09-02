@@ -53,10 +53,9 @@ function handleError(error, res) {
 /*****************************ROUTES */
 app.get('/detail/:id', (req, res) => {
   //username takes place of id in this case
-  const mySql = `SELECT * FROM movies WHERE username=$1;`;
-  const id = req.body.id;
-  // now going to be a text input on the form which is no longer in params
-  
+  const mySql = `SELECT * FROM movies WHERE id=$1;`;
+  const id = req.params.id;
+  // now going to be a text input on the form which is no longer in params 
   //'${req.params.id}' removed from mySql to figure out how to get id arg into sql query
   //I am connecting to the database successfully but there is nothing in it. So I need to get it seeded.
   console.log(mySql);
@@ -74,16 +73,21 @@ app.get('/detail/:id', (req, res) => {
     });
 });
 
+app.post('/preview' , (req, res)=> {
+  //const {title, poster,rating,plot, actors, genre, username} = req.body;
+  const movie = req.body;
+  res.render('pages/detail', {movie:movie});
+})
 
 
 
 app.post('/detail', (req, res) => {
-  const {id, title, poster,rating,plot, actors, genre, username} = req.body;
-  const values = [title, poster, rating, plot, actors, genre, username];
-  const mySql = `INSERT INTO movies (title, poster, vote_average, overview, release_date) VALUES ($1, $2, $3,$4, $5, $6)`;
+  const {title, poster,vote_average, overview, release_date, username} = req.body;
+  const values = [title, poster,vote_average, overview, release_date, username];
+  const mySql = `INSERT INTO movies (title, poster, vote_average, overview, release_date, username) VALUES ($1, $2, $3,$4, $5, $6)`;
   client.query(mySql, values)
     .then( result => {
-      res.redirect('/pages/watchlist', {movieObject:result.rows});
+      res.render('pages/watchlist', {movieObject:result.rows});
     })
     .catch(error => {
       handleError(error, res);
