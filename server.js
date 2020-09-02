@@ -26,12 +26,12 @@ const movieSearchUrl = `https://api.themoviedb.org/3/discover/movie/?certificati
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: true}));
 app.use(cors());
+app.use(express.static('./public'));
 app.use(methodOverride('_method'));
 // app.get('/api/movies/:id', getSingleMovie);
 app.get('/', (req, res) => {
   res.send('hello');
 });
-
 // res.render('pages/index'));
 
 //Server
