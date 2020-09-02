@@ -8,7 +8,7 @@ const pg = require('pg');
 require('dotenv').config();
 
 //Global Vars
-const PORT=process.env.PORT||3003;
+const PORT=process.env.PORT ||3003;
 const app = express();
 const methodOverride = require('method-override');
 const DATABASE_URL = process.env.DATABASE_URL;
@@ -52,8 +52,11 @@ function handleError(error, res) {
 }
 /*****************************ROUTES */
 app.get('/detail/:id', (req, res) => {
-  const mySql = `SELECT * FROM movies WHERE id=$1;`;
-  const id = req.params.id;
+  //username takes place of id in this case
+  const mySql = `SELECT * FROM movies WHERE username=$1;`;
+  const id = req.body.id;
+  // now going to be a text input on the form which is no longer in params
+  
   //'${req.params.id}' removed from mySql to figure out how to get id arg into sql query
   //I am connecting to the database successfully but there is nothing in it. So I need to get it seeded.
   console.log(mySql);
@@ -80,7 +83,6 @@ app.post('/detail', (req, res) => {
   const mySql = `INSERT INTO movies (title, poster, vote_average, overview, release_date) VALUES ($1, $2, $3,$4, $5, $6)`;
   client.query(mySql, values)
     .then( result => {
-      // 
       res.redirect('/pages/watchlist', {movieObject:result.rows});
     })
     .catch(error => {
