@@ -1,0 +1,9 @@
+.container{
+
+  display: flex;
+  flex-direction: row;
+}
+
+img{
+  outline: 2px solid orange;
+}
