@@ -13,9 +13,9 @@ const app = express();
 const methodOverride = require('method-override');
 const client = new pg.Client()//database url here;
 client.on('error', error => console.error(error));
-const OMDB_API_KEY = process.env.OMDB_API_KEY;
+const API_KEY = process.env.API_KEY;
 //pass in object argument from movieObject
-// const posterSearchUrl = `http://img.omdbapi.com/?i=tt3896198&h=600&apikey=${OMDB_API_KEY}`;
+const movieSearchUrl = `https://api.themoviedb.org/3/discover/movie/?certification_country=US&sort_by=vote_average&api_key=${API_KEY}&vote_count.gte=25&vote_average.gte=7.5`;
 
 
 
@@ -28,7 +28,9 @@ app.use(express.urlencoded({extended: true}));
 app.use(cors());
 app.use(methodOverride('_method'));
 // app.get('/api/movies/:id', getSingleMovie);
-
+app.get('/', (req, res) => {
+  res.send('hello');
+});
 
 // res.render('pages/index'));
 
@@ -39,18 +41,17 @@ client.connect()
   });
 
 //Routes
-// app.get('/api/movies', (req, res));
+app.get('/api/movies', (req, res));
 // app.get('api/movies/:id', (req, res));
 // app.post('/api/movies', (req, res));
 // app.delete('/api/movies/:id', (req, res));
 app.get('/', renderHomepage); 
 
-//Functions
+// Functions
 function handleError(error, res) {
   console.error(error);
   res.render('error', {error});
 }
-
 /*****************************ROUTES */
 app.get('/detail/:id', (req, res) => {
   const movies = movieObject.find(m => m.id === parseInt(req.params.id));
@@ -70,29 +71,18 @@ app.post('/detail', (req, res) => {
       handleError(error, res);
     });
 });
-
-
-
-
-
-
-const movieObject = [ {id:1, title:2 } ]; //an array of objects
-
+const movieObject = [ {id:1,title:2 } ];
 function Movie(movieObject){
   //need to replace with more precise values
-  this.id = movieObject.id;
   this.title = movieObject.title;
-  this.poster = movieObject.poster;
-  this.rating = movieObject.rating;
-  this.plot = movieObject.plot;
-  this.actors = movieObject.actors;
-  this.genre = movieObject.genre;
-  this.username = movieObject.username;
-
-
-function renderHomepage(req,res){
-const movieSearchUrl = `http://www.omdbapi.com/?i=tt3896198&apikey=${OMDB_API_KEY}&page=1`;
-
-  res.render('pages/index.ejs');
-
-
+  this.poster = movieObject.poster_path;
+  this.vote_average = movieObject.vote_average;
+  this.overview = movieObject.overview;
+  this.release_date = movieObject.release_date;
+}
+  function renderHomepage(req,res){
+  const movieSearchUrl = `http://www.omdbapi.com/?i=tt3896198&apikey=${OMDB_API_KEY}&page=1`;
+  
+    res.render('pages/index.ejs');
+  };
+}
