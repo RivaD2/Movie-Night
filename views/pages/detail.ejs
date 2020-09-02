@@ -14,14 +14,14 @@
 <div class="detail-container">
   <!-- <h1 class="detail-title detail-section"><%= movie.title %> (<%= movie.release_date %>)</h1>
   Once database is connected, switch out hardcoded data for the dynamic data-->
-<h1 class="detail-title detail-section">Beetlejuice (1988)</h1>
+<h1 class="detail-title detail-section"><%= movie.title %><%= movie.release_date %></h1>
 <div class="detail-image-container detail-section">
-  <img src="/images/test-poster.jpg" class="detail-image">
+  <img src="<%= movie.poster %" class="detail-image">
 </div>
 <div class="detail-rating detail-section">
   Rating: 73%
 </div>
-<div class="detail-overview detail-section">
+<div class="<%= movie.overview %>">
   Thanks to an untimely demise via drowning, a young couple end up as poltergeists in their New England farmhouse, where they fail to meet the challenge of scaring away the insufferable new owners, who want to make drastic changes. In desperation, the undead newlyweds turn to an expert frightmeister, but he's got a diabolical agenda of his own.
 </div>
 
