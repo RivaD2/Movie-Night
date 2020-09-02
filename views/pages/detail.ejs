@@ -4,51 +4,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="public/reset.css">
-  <link rel="stylesheet" href="public/base.css">
-  <link rel="stylesheet" href="public/layout.css">
-  <link rel="stylesheet" href="public/modules.css">
+  <link rel="stylesheet" href="/reset.css">
+  <link rel="stylesheet" href="/base.css">
+  <link rel="stylesheet" href="/layout.css">
+  <link rel="stylesheet" href="/modules.css">
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+</head>
+<body class="detail-body">
+<div class="detail-container">
+  <!-- <h1 class="detail-title detail-section"><%= movie.title %> (<%= movie.release_date %>)</h1>
+  Once database is connected, switch out hardcoded data for the dynamic data-->
+<h1 class="detail-title detail-section">Beetlejuice (1988)</h1>
+<div class="detail-image-container detail-section">
+  <img src="/images/test-poster.jpg" class="detail-image">
+</div>
+<div class="detail-rating detail-section">
+  Rating: 73%
+</div>
+<div class="detail-overview detail-section">
+  Thanks to an untimely demise via drowning, a young couple end up as poltergeists in their New England farmhouse, where they fail to meet the challenge of scaring away the insufferable new owners, who want to make drastic changes. In desperation, the undead newlyweds turn to an expert frightmeister, but he's got a diabolical agenda of his own.
+</div>
 
-<% for(let i=0; i < movieArray.length;i++) { %>
-  <div class="movie-container">
-  <div class="image-container">
-    <!-- <img src="<%= movieArray[i].poster%>" class="images" alt=""> -->
-    <img src="https://journals.openedition.org/sillagescritiques/docannexe/image/3718/img-2.jpg" alt="movie title">
-  </div>
-    <div class="movie-title">
-      <%= movieArray[i].title %>
-  </div>
-  <div class= "movie-rating">
-    <%= movieArray[i].rating %>
-<!-- Add in author Name -remember that it is an array of authors which will require another for loop -->
-  </div>
-  <div class="movie-plot">
-    <%= movieArray[i].plot %>
-  </div>
-  <div class="movie-actors">
-    <%= movieArray[i].actors %>
-  </div>
-  <div class="movie-genre">
-    <%= movieArray[i].genre %>
-  </div>
-  
-
-<div class="movie-select">
+<div class="detail-add detail-section">
   <form action="/detail" method="POST">
-    <!-- <form action="/movies" method="POST"> -->
-    <input type="hidden" name="title" value="<%= movieArray[i].title %>">
-    <input type="hidden" name="rating" value="<%= movieArray[i].rating %>">
-    <input type="hidden" name="plot" value="<%= movieArray[i].plot %>">
-    <input type="hidden" name="actors" value="<%= movieArray[i].actors%>">
-    <input type="hidden" name="genre" value="<%= movieArray[i].genre %>">
-    <input type="submit" value="Add to Watchlist">
+    <input type="hidden" name="title" value="">
+    <input type="hidden" name="poster" value="">
+    <input type="hidden" name="vote_average" value="">
+    <input type="hidden" name="overview" value="">
+    <input type="hidden" name="release_date" value="">
+    <input type="hidden" name="username" value="">
+    <input type="submit" class="detail-add-button" value="Add to Watchlist">
   </form>
 </div>
 </div>
-<% } %>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="server.js"></script>
   <sript src="detail.ejs"></sript>
 </body>
 </html>
