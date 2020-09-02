@@ -31,11 +31,6 @@ app.use(methodOverride('_method'));
 app.use(express.static('./public'));
 // app.get('/api/movies/:id', getSingleMovie);
 
-// app.get('/', (req, res) => {
-//   res.send('hello');
-// });
-//commented test route out so I could see actual homepage 
-// res.render('pages/index'));
 
 //Server
 client.connect()
@@ -104,6 +99,9 @@ function Movie(movieObject){
   this.poster = 'https://image.tmdb.org/t/p/w600_and_h900_bestv2' + movieObject.poster_path;
   this.vote_average = movieObject.vote_average;
   this.overview = movieObject.overview;
+
+  // provides the release year only
+  movieObject.release_date = movieObject.release_date.slice(0,4);
   this.release_date = movieObject.release_date;
 
  
