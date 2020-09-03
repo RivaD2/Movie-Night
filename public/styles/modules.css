@@ -96,4 +96,45 @@
   font-size: 40pt;
 }
 
-/******************* ABOUT.EJS CODE ABOVE BY RIVA /*
+/* ****************** ABOUT.EJS CODE ABOVE BY RIVA */
+
+.footer {
+  box-sizing: border-box;
+  height: 80px;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(242, 242, 243, 0.945);
+  margin: 5px 0;
+  position: absolute;
+  bottom: 0;
+  border-top: solid 2px rgb(31, 174, 231);
+
+}
+
+.footer-mn-logo{
+  width: 80px;
+  float: left;
+  padding: 0 10px;
+  padding-top: 18px;
+  line-height: 80px;
+}
+
+.footer-text{
+  color: black;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 900;
+  display: inline;
+  letter-spacing: 0.1em;
+  line-height: 80px;
+}
+
+.footer-tmbd-logo{
+  width: 80px;
+  float: right;
+  padding: 0 10px;
+  padding-top: 23px;
+  line-height: 80px;
+}
