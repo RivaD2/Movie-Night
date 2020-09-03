@@ -118,9 +118,9 @@
   justify-content: center;
   align-items: center;
   background-color: rgba(242, 242, 243, 0.945);
-  margin: 5px 0;
-  position: absolute;
-  bottom: 0;
+  /* margin: 5px 0; */
+  position: fixed;
+  bottom:0; left:0; right:0;
   border-top: solid 2px rgb(31, 174, 231);
 
 }

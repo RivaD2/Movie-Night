@@ -1,38 +1,43 @@
+
+/* ================================= homepage styling start */
+
+/* ==================== tag selectors */
+
+
+
+/* ==================== id selectors */
+
+/* ==================== class selectors */
+
 /* individual divs for each movie */
-main > section:nth-child(2) > div > div{
+.eachMovie{
   /* outline: 2px solid red; */
   width: 250px;
   height: 300px;
   text-align: center;
-  margin: 30px 10px;
+  margin: 125px 10px;
 }
 
-/* commented this out because it is in global scope 
-img{
-  width: 100%;
-  height: 100%;
-  /* source: https://www.w3schools.com/css/css3_shadows_box.asp 
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-*/
-
-/* container */
-main > section:nth-child(2) > div{
-  margin: 100px auto;
-  /* outline: 2px solid blue; */
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 80%;
-}
-
-body{
+.homepage-body{
   /* outline: 5px solid red; */
   width: 100%;
+  font-family:'Russo One', sans-serif;
+  background-image: url("/images/detail-background-image.jpg");
+  background-size: cover;
+
 }
 
-/* .container{
-  margin: 0 auto;
+/* commented this out because it is in global scope  */
+.homepage-imgs{
+  width: 100%;
+  height: 100%;
+  /* source: https://www.w3schools.com/css/css3_shadows_box.asp  */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.homepage-container{
+  /* outline: 2px solid orange; */
+  margin: 100px auto;
   width: 80%;
   display: flex;
   flex-direction: row;
@@ -41,5 +46,7 @@ body{
   padding: 20px 0;
   opacity: 0.9;
 
-}  */
+} 
+
+/* ================================= homepage styling end */
 

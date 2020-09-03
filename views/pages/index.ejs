@@ -14,7 +14,7 @@
 
 </head>
 
-<body>
+<body class="homepage-body">
   <%- include('../layout/header') %>
 
 
@@ -28,17 +28,17 @@
           Recommended Movies
         </h1>
 
-        <div class="container">
+        <div class="homepage-container">
         <% for(let movie of movies){ %>
 
-            <div class=>
+            <div class="eachMovie">
               <a href="/detail">
-                <img src="<%= movie.poster %>"> 
+                <img class="homepage-imgs" src="<%= movie.poster %>"> 
               </a>
-              <!-- <h2> <%= movie.title %> </h2> -->
-              <p> <%= movie.release_date %> </p> 
+              <h2> <%= movie.title %> </h2>
+              <p> <%= movie.release_date %> </p>
               <p> <%= movie.vote_average %> </p> 
-              <!-- <p> <%= movie.overview %> </p>  -->
+
                 <form action="/preview" method="POST">
                   <input type="hidden" name="title" value="<%= movie.title %>">
                   <input type="hidden" name="poster" value="<%= movie.poster %>">
