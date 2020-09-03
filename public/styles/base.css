@@ -7,12 +7,14 @@ main > section:nth-child(2) > div > div{
   margin: 30px 10px;
 }
 
+/* commented this out because it is in global scope 
 img{
   width: 100%;
   height: 100%;
-  /* source: https://www.w3schools.com/css/css3_shadows_box.asp */
+  /* source: https://www.w3schools.com/css/css3_shadows_box.asp 
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+*/
 
 /* container */
 main > section:nth-child(2) > div{

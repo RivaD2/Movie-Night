@@ -4,14 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/reset.css">
-  <link rel="stylesheet" href="/base.css">
-  <link rel="stylesheet" href="/layout.css">
+  <link rel="stylesheet" href="/styles/reset.css">
+  <link rel="stylesheet" href="/styles/base.css">
+  <link rel="stylesheet" href="/styles/layout.css">
   <link rel="stylesheet" href="/styles/modules.css">
   <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
 </head>
 <body class="detail-body">
-<div class="detail-container">
+  <div class="detail-container">
+    <%- include('../layout/header') %>
   <h1 class="detail-title detail-section"><%= movie.title %> <%= movie.release_date %></h1>
 <div class="detail-image-container detail-section">
   <img src="<%= movie.poster %>" class="detail-image">
