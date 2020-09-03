@@ -58,7 +58,7 @@ app.get('/detail/:id', (req, res) => {
   //username takes place of id in this case
   const mySql = `SELECT * FROM movies WHERE id=$1;`;
   const id = req.params.id;
-  // now going to be a text input on the form which is no longer in params 
+  // now going to be a text input on the form which is no longer in params
   //'${req.params.id}' removed from mySql to figure out how to get id arg into sql query
   //I am connecting to the database successfully but there is nothing in it. So I need to get it seeded.
   console.log(mySql);
@@ -120,7 +120,7 @@ function Movie(movieObject){
   movieObject.release_date = movieObject.release_date.slice(0,4);
   this.release_date = movieObject.release_date;
 
- 
+
 }
 
 
@@ -172,4 +172,19 @@ function renderAboutPage(req, res){
   res.render('pages/about');
 }
 
+// Sort Movie by release date highest to smallest
+// const sortBackwards = (movie) => {
+
+//   function compare(a,b) {
+//     if(a < b) {
+//       return 1;
+//     } else if(a > b) {
+//       return -1;
+//     }else {
+//       return 0;
+//     }
+//   }
+//   movie.sort(compare);
+//   return movie;
+// };
 

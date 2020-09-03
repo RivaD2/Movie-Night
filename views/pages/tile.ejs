@@ -1,15 +1,4 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/styles/reset.css">
-  <link rel="stylesheet" href="/styles/base.css">
-  <link rel="stylesheet" href="/styles/layout.css">
-  <link rel="stylesheet" href="/styles/modules.css">
-  <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
-</head>
 <body class="detail-body">
   <div class="detail-container">
     <%- include('../layout/header') %>
@@ -23,23 +12,13 @@
 <div class="detail-overview"><%= movie.overview %>
 </div>
 
-
 <div class="detail-add detail-section">
   <form action="/detail" method="POST">
     <input type="hidden" name="title" value="<%= movie.title %>">
     <input type="hidden" name="poster" value="<%= movie.poster %>">
     <input type="hidden" name="vote_average" value="<%= movie.vote_average %>">
-    <input type="hidden" name="overview" value="<%= movie.overview %>">
     <input type="hidden" name="release_date" value="<%= movie.release_date %>">
     <input type="hidden" name="username" required  value="<%= movie.username %>">
-    <input type="submit" class="detail-add-button" value="Add to Watchlist">
+    <input type="submit" class="detail-add-button" value="Delete From Watchlist">
   </form>
 </div>
-</div>
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <sript src="detail.ejs"></sript>
- 
-</body>
-</html>
