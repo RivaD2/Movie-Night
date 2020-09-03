@@ -5,23 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 
-  <link rel="stylesheet" href="styles/reset.css">
-  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="/styles/reset.css">
+  <link rel="stylesheet" href="/styles/base.css">
+  <link rel="stylesheet" href="/styles/layout.css">
+  <link rel="stylesheet" href="/styles/modules.css">
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
 
 
 </head>
 
 <body>
-  <header>
-    <ul>
-      <li><a  href="/">Movie Night</a></li>
-      <li><a  href="/about.ejs">About Us</a></li>
-    </ul>
-    <ul>
-      <li> Hello Username</li>
-      <li> <a href="/watchlist.ejs">My Watchlist</a></li>
-    </ul>
-  </header>
+  <%- include('../layout/header') %>
+
 
   <main>
     <section>
@@ -36,7 +31,7 @@
         <div class="container">
         <% for(let movie of movies){ %>
 
-            <div>
+            <div class=>
               <a href="/detail">
                 <img src="<%= movie.poster %>"> 
               </a>
@@ -62,7 +57,7 @@
   </main>
 
 
-
+  <%- include('../layout/footer') %>
 
   
 </body>
