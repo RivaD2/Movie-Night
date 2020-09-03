@@ -3,29 +3,45 @@
 <head>
   <!--head from partial goes here-->
   <title>Watch List</title>
-
-  <link rel="stylesheet" href="styles/reset.css">
-  <!-- <link rel="stylesheet" href="styles/base.css"> -->
+  <link rel="stylesheet" href="/styles/reset.css">
+  <link rel="stylesheet" href="/styles/base.css">
+  <link rel="stylesheet" href="/styles/layout.css">
+  <link rel="stylesheet" href="/styles/modules.css">
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
 </head>
 <body>
-  <main>
+ <body class="watchlist-body">
+    <div class="watchlist-container">
+      <%- include('../layout/header') %>
     
-    
-
+      
     <% for(let movie of movies){ %>
-
-      <div>
-        <a href="/detail">
-          <img src="<%= movie.poster %>"> 
-        </a>
-        <!-- <h2> <%= movie.title %> </h2> -->
-        <p> <%= movie.release_date %> </p> 
-        <p> <%= movie.vote_average %> </p> 
-        <!-- <p> <%= movie.overview %> </p>  -->
+      <h1 class="watchlist-title watchlist-section"><%= movie.title %> (<%= movie.release_date %>)</h1>
+      <div class="watchlist-image-container watchlist-section"></div>
+        <img src="<%= movie.poster %>" class="watchlist-image">
       </div>
-  <% } %>
+      <div class="watchlist-rating watchlist-section">
+        Rating: 73%
+      </div>
+      
+      <% } %>
   
+  <div class="watchlist-add watchlist-section">
+    <form action="/watchlist" method="POST">
+      <input type="hidden" name="title" value="<%= movies[i].title %>">
+      <input type="hidden" name="poster" value="<%= movies[i]poster %>">
+      <input type="hidden" name="vote_average" value="<%= movies[i].vote_average %>">
+      <input type="hidden" name="overview" value="<%= movies[i].overview %>">
+      <input type="hidden" name="release_date" value="<%= movies[i].release_date %>">
+      <input type="hidden" name="username" required  value="<%= movies[i].username %>">
+      <input type="submit" class="watchlist-delete-button" value="Delete From Watchlist">
+    </form>
+  </div>
+  </div>
+  
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <sript src="watchlist.ejs"></sript>
 
-  </main>
 </body>
 </html>
