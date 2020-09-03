@@ -129,7 +129,7 @@
   color: white;
 }
 
-.watchlist-add-button {
+.watchlist-delete-button {
   width: 260px;
   height: 60px;
   border: solid 2px rgb(230, 222, 222);
@@ -140,7 +140,7 @@
   cursor: pointer;
 }
 
-.watchlist-add-button:hover{
+.watchlist-delete-button:hover{
   border-color:rgb(31, 174, 231);
   color:rgb(31, 174, 231);
   background-color: black;
