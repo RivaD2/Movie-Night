@@ -96,19 +96,13 @@
   font-size: 40pt;
 }
 /**********************************ABOUT.EJS STYLING ABOVE BY RIVA*/
-.watchlist-image {
-  justify-content:center;
-  border: solid 4px rgb(218, 210, 210);
-  width: 350px;
 
-}
-.watchlist-title {
-  font-size: 40pt; 
-}
 
-.watchlist-section {
-  text-align: center;
-  margin: 20px;
+.watchlist-body {
+  background-image: url("/images/detail-background-image.jpg");
+  background-size: cover;
+  font-family:'Russo One', sans-serif;
+  color: white;
 }
 
 .watchlist-container {
@@ -122,13 +116,21 @@
   padding-bottom: 48px;
 }
 
-.watchlist-body {
-  background-image: url("/images/detail-background-image.jpg");
-  background-size: cover;
-  font-family:'Russo One', sans-serif;
-  color: white;
+.watchlist-section {
+  text-align: center;
+  margin: 20px;
 }
 
+.watchlist-title {
+  font-size: 40pt; 
+}
+
+.watchlist-image {
+  justify-content:center;
+  border: solid 4px rgb(218, 210, 210);
+  width: 350px;
+
+}
 .watchlist-delete-button {
   width: 260px;
   height: 60px;
@@ -145,4 +147,5 @@
   color:rgb(31, 174, 231);
   background-color: black;
 }
+
 /******************* WATCHLIST.EJS CODE ABOVE BY RIVA /*
