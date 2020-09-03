@@ -7,32 +7,30 @@
   <link rel="stylesheet" href="/reset.css">
   <link rel="stylesheet" href="/base.css">
   <link rel="stylesheet" href="/layout.css">
-  <link rel="stylesheet" href="/modules.css">
+  <link rel="stylesheet" href="/styles/modules.css">
   <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
 </head>
 <body class="detail-body">
 <div class="detail-container">
-  <!-- <h1 class="detail-title detail-section"><%= movie.title %> (<%= movie.release_date %>)</h1>
-  Once database is connected, switch out hardcoded data for the dynamic data-->
-<h1 class="detail-title detail-section"><%= movie.title %><%= movie.release_date %></h1>
+  <h1 class="detail-title detail-section"><%= movie.title %> <%= movie.release_date %></h1>
 <div class="detail-image-container detail-section">
-  <img src="<%= movie.poster %" class="detail-image">
+  <img src="<%= movie.poster %>" class="detail-image">
 </div>
 <div class="detail-rating detail-section">
   Rating: 73%
 </div>
-<div class="<%= movie.overview %>">
-  Thanks to an untimely demise via drowning, a young couple end up as poltergeists in their New England farmhouse, where they fail to meet the challenge of scaring away the insufferable new owners, who want to make drastic changes. In desperation, the undead newlyweds turn to an expert frightmeister, but he's got a diabolical agenda of his own.
+<div class="detail-overview"><%= movie.overview %>
 </div>
+
 
 <div class="detail-add detail-section">
   <form action="/detail" method="POST">
-    <input type="hidden" name="title" value="">
-    <input type="hidden" name="poster" value="">
-    <input type="hidden" name="vote_average" value="">
-    <input type="hidden" name="overview" value="">
-    <input type="hidden" name="release_date" value="">
-    <input type="hidden" name="username" value="">
+    <input type="hidden" name="title" value="<%= movie.title %>">
+    <input type="hidden" name="poster" value="<%= movie.poster %>">
+    <input type="hidden" name="vote_average" value="<%= movie.vote_average %>">
+    <input type="hidden" name="overview" value="<%= movie.overview %>">
+    <input type="hidden" name="release_date" value="<%= movie.release_date %>">
+    <input type="hidden" name="username" required  value="<%= movie.username %>">
     <input type="submit" class="detail-add-button" value="Add to Watchlist">
   </form>
 </div>
