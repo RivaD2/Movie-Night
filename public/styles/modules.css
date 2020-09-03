@@ -95,5 +95,57 @@
 .about-title {
   font-size: 40pt;
 }
+/**********************************ABOUT.EJS STYLING ABOVE BY RIVA*/
 
-/******************* ABOUT.EJS CODE ABOVE BY RIVA /*
+
+.watchlist-body {
+  background-image: url("/images/detail-background-image.jpg");
+  background-size: cover;
+  font-family:'Russo One', sans-serif;
+  color: white;
+}
+
+.watchlist-container {
+
+  min-width: 100vw;
+  background-color: rgba(0,0,0,0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 48px;
+}
+
+.watchlist-section {
+  text-align: center;
+  margin: 20px;
+}
+
+.watchlist-title {
+  font-size: 40pt; 
+}
+
+.watchlist-image {
+  justify-content:center;
+  border: solid 4px rgb(218, 210, 210);
+  width: 350px;
+
+}
+.watchlist-delete-button {
+  width: 260px;
+  height: 60px;
+  border: solid 2px rgb(230, 222, 222);
+  background-color: rgba(25, 25, 25, 0.4);
+  color: rgb(230, 222, 222);
+  padding: 8px 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.watchlist-delete-button:hover{
+  border-color:rgb(31, 174, 231);
+  color:rgb(31, 174, 231);
+  background-color: black;
+}
+
+/******************* WATCHLIST.EJS CODE ABOVE BY RIVA /*
