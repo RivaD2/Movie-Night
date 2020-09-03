@@ -3,28 +3,28 @@
 <head>
   <!--head from partial goes here-->
   <title>Watch List</title>
+
+  <link rel="stylesheet" href="styles/reset.css">
+  <!-- <link rel="stylesheet" href="styles/base.css"> -->
 </head>
 <body>
   <main>
-    <h1>Watch List</h1>
+    
+    
 
+    <% for(let movie of movies){ %>
 
-    <% for(let i=0; i < movieObject.length; i++) { %>
-      <div class="watchlist-movie-container">
-        <div class="watchlist-image-container">
-          <img src="<% movieObject[i].poster%>" class="movie-poster" alt="movie poster">
-        </div>
-
-        <div class="watchlist-movie-title">
-          <% movieObject[i].title %>
-        </div>
+      <div>
+        <a href="/detail">
+          <img src="<%= movie.poster %>"> 
+        </a>
+        <!-- <h2> <%= movie.title %> </h2> -->
+        <p> <%= movie.release_date %> </p> 
+        <p> <%= movie.vote_average %> </p> 
+        <!-- <p> <%= movie.overview %> </p>  -->
       </div>
-
-      <div class="watchlist-delete-movie">
-        <% console.log(movieObject) %>
-        <form action="/pages/watchlist/<%= movieObject %>?_method=DELETE"
-         method="POST"><input type="submit" value="Delete From Watchlist"></form>
-      </div>
+  <% } %>
+  
 
   </main>
 </body>

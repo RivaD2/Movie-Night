@@ -44,6 +44,9 @@ client.connect()
 // app.post('/api/movies', (req, res));
 // app.delete('/api/movies/:id', (req, res));
 app.get('/', renderHomepage);
+app.get('/watchlist', renderWatchlist);
+app.get('/about', renderAboutPage);
+
 
 // Functions
 function handleError(error, res) {
@@ -117,15 +120,15 @@ function Movie(movieObject){
 function renderHomepage(req,res){
   // const movieSearchUrl = `https://api.themoviedb.org/3/movie/3/recommendations?api_key=${MOVIE_API_KEY}&language=en-US&page=1`;
 
-  const movieSearchUrl =  `https://api.themoviedb.org/3/discover/movie/?certification_country=US&sort_by=vote_average&api_key=82d4270c35eb3e4492fa5462bb89256d&vote_count.gte=15&vote_average.gte=8&primary_release_date.gte=2018-01-01`;
+  const movieSearchUrl =  `https://api.themoviedb.org/3/discover/movie/?certification_country=US&sort_by=vote_average&api_key=${API_KEY}&vote_count.gte=15&vote_average.gte=8&primary_release_date.gte=2018-01-01`;
 
   superagent.get(movieSearchUrl)
     .then(APIMovieData => {
 
-      // console.log(APIMovieData);
+      console.log(APIMovieData.body);
       const movieArr = APIMovieData.body.results.map(movieData => new Movie(movieData));
 
-
+      console.log(movieArr);
       res.render('pages/index.ejs', { movies : movieArr});
 
 
@@ -134,5 +137,32 @@ function renderHomepage(req,res){
 
 }
 
+
+function renderWatchlist(req, res){
+  const mySql = `SELECT * FROM movies;`;
+  // const id = req.params.id;
+  //'${req.params.id}' removed from mySql to figure out how to get id arg into sql query
+  //I am connecting to the database successfully but there is nothing in it. So I need to get it seeded.
+  // console.log(mySql);
+  client.query(mySql)
+    .then( result => {
+
+      // res.send(result.rows);
+      //const movies = movieObject.find(m => m.id === parseInt(req.params.id));
+      if(!result)res.status(404).send('The movie with the given id is not found');
+      // console.log(result);
+      // send whatever pages/detail needs to render data
+      // console.log(result.rows[0]);
+      res.render('pages/watchlist', {movies: result.rows});
+    })
+    .catch(error => {
+      console.log(error);
+      handleError(error, res);
+    });
+}
+
+function renderAboutPage(req, res){
+  res.render('pages/about');
+}
 
 
