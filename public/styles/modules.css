@@ -52,6 +52,9 @@
   background-color: black;
 }
 
+/* DETAILS.EJS PAGE CODE ABOVE BY RIVA ************************************************/
+
+
 .header-container {
   height: 140px;
   width: calc(100vw - 24px);
@@ -79,6 +82,8 @@
 .nav-link:hover {
   color:rgb(31, 174, 231);
 }
+/*********************** HEADER.EJS CODE ABOVE BY RIVA */
+
 #name {
   font-size: 15px;
   }
@@ -90,4 +95,5 @@
 .about-title {
   font-size: 40pt;
 }
-/* DETAILS.EJS PAGE CODE ABOVE BY RIVA ************************************************
+
+/******************* ABOUT.EJS CODE ABOVE BY RIVA /*
