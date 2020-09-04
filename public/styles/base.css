@@ -13,7 +13,7 @@
 .eachMovie{
   /* outline: 2px solid red; */
   width: 250px;
-  height: 300px;
+  height: 400px;
   text-align: center;
   margin: 125px 10px;
 }
@@ -24,13 +24,14 @@
   font-family:'Russo One', sans-serif;
   background-image: url("/images/detail-background-image.jpg");
   background-size: cover;
+  color: white;
 
 }
 
 /* commented this out because it is in global scope  */
 .homepage-imgs{
   width: 100%;
-  height: 100%;
+  height: 80%;
   /* source: https://www.w3schools.com/css/css3_shadows_box.asp  */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
