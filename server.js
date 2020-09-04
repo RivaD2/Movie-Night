@@ -107,8 +107,6 @@ app.post('/detail', (req, res) => {
 
 
 
-const movieObject = [ {id:1,title:2 } ];
-
 function Movie(movieObject){
   //need to replace with more precise values
   this.title = movieObject.title;
@@ -172,19 +170,4 @@ function renderAboutPage(req, res){
   res.render('pages/about');
 }
 
-// Sort Movie by release date highest to smallest
-// const sortBackwards = (movie) => {
-
-//   function compare(a,b) {
-//     if(a < b) {
-//       return 1;
-//     } else if(a > b) {
-//       return -1;
-//     }else {
-//       return 0;
-//     }
-//   }
-//   movie.sort(compare);
-//   return movie;
-// };
 

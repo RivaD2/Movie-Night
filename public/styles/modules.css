@@ -21,6 +21,10 @@
   margin: 20px;
 }
 
+.detail-rating {
+  font-size: 25px;
+  color:rgb(218, 210, 210);
+}
 .detail-title {
   font-size: 40pt; 
 }
@@ -57,7 +61,7 @@
 
 .header-container {
   height: 140px;
-  width: calc(100vw - 24px);
+  width: calc(100vw - 22px);
   /* there is a padding of 12 px left and right so
   reduce width by 24px*/
   display:flex;
@@ -176,6 +180,11 @@
   margin: 20px;
 }
 
+.watchlist-rating {
+  font-size: 25px;
+  color:rgb(218, 210, 210);
+}
+
 .watchlist-title {
   font-size: 40pt; 
 }
@@ -203,6 +212,22 @@
   background-color: black;
 }
 
+.watchlist-sort-button {
+  width: 260px;
+  height: 60px;
+  border: solid 2px rgb(230, 222, 222);
+  background-color: rgba(25, 25, 25, 0.4);
+  color: rgb(230, 222, 222);
+  padding: 8px 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.watchlist-sort-button:hover{
+  border-color:rgb(31, 174, 231);
+  color:rgb(31, 174, 231);
+  background-color: black;
+}
 /******************* WATCHLIST.EJS CODE ABOVE BY RIVA /*
 
 
