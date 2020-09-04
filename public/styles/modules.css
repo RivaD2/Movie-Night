@@ -100,6 +100,9 @@
   background-color:rgba(32,32,32,0.8);
   border: solid 1px rgb(31, 174, 231);
   padding: 10px;
+  /* added in line 104 to get content centered - Krys */
+  margin-left: 20%;
+  margin-right: 20%;
 }
 .about-title {
   font-size: 40pt;
@@ -118,8 +121,8 @@
   justify-content: center;
   align-items: center;
   background-color: rgba(242, 242, 243, 0.945);
-  /* margin: 5px 0; */
-  position: fixed;
+  margin-top: 5px;
+  position: bottom;
   bottom:0; left:0; right:0;
   border-top: solid 2px rgb(31, 174, 231);
 

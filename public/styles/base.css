@@ -27,7 +27,14 @@
 
 }
 
-/* commented this out because it is in global scope  */
+.homepage-h1{
+  font-size: 50pt;
+  text-align: center;
+  font-family: 'Russo One', sans-serif;
+  color: white;
+  margin-top: 50px;
+}
+
 .homepage-imgs{
   width: 100%;
   height: 100%;
