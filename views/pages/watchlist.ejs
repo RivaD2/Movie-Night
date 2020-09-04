@@ -10,9 +10,8 @@
 </head>
  <body class="watchlist-body">
   <%- include('../layout/header') %>
-    <div class="watchlist-container">
-     
- <% for(let movie of movies){ %>
+    <div class="watchlist-container"> 
+  <% for(let movie of movies){ %>
   <div class="watchlist-item">
       <h1 class="watchlist-title watchlist-section"><%= movie.title %> (<%= movie.release_date %>)</h1>
       <div class="watchlist-image-container watchlist-section">
@@ -20,8 +19,7 @@
       </div>
       <div class="watchlist-rating watchlist-section">
         Rating <%= movie.vote_average %>
-      </div>
-      
+      </div>   
   <div class="watchlist-add watchlist-section">
     <form action="/watchlist/<%= movie.id %>?_method=DELETE" method="POST">
       <input type="hidden" name="_method" value="DELETE">

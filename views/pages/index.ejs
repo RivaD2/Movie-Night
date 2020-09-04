@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Movie Night</title>
 
   <link rel="stylesheet" href="/styles/reset.css">
@@ -10,32 +11,22 @@
   <link rel="stylesheet" href="/styles/layout.css">
   <link rel="stylesheet" href="/styles/modules.css">
   <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
-
-
 </head>
-
 <body class="homepage-body">
   <%- include('../layout/header') %>
-
-
   <main>
     <section>
         <h1 class="homepage-h1">
           Recommended Movies
         </h1>
-
         <div class="homepage-container">
-        <% for(let movie of movies){ %>
-
+          <% for(let movie of movies){ %>
             <div class="eachMovie">
-
               <div class="containElementsExceptButton">
                 <img class="homepage-imgs" src="<%= movie.poster %>"> 
-              
-              <h2> <%= movie.title %> </h2>
-              <p> <%= movie.release_date %> </p>
-              <p> <%= movie.vote_average %> </p> 
-
+                <h2> <%= movie.title %> </h2>
+                <p> <%= movie.release_date %> </p>
+                <p> <%= movie.vote_average %> </p> 
                 <form action="/preview" method="POST">
                   <input type="hidden" name="title" value="<%= movie.title %>">
                   <input type="hidden" name="poster" value="<%= movie.poster %>">
@@ -43,24 +34,14 @@
                   <input type="hidden" name="overview" value="<%= movie.overview %>">
                   <input type="hidden" name="release_date" value="<%= movie.release_date %>">
                   <input type="hidden" name="username" required  value="<%= movie.username %>">
-
-                </div>
+              </div>
                   <input type="submit" class="detail-add-button" value="View Details">
                 </form>
             </div>
-        <% } %>
-
-        </div>
-        
+          <% } %>
+        </div>    
     </section>
   </main>
-
-
-  <%- include('../layout/footer') %>
-
-  
+  <%- include('../layout/footer') %> 
 </body>
-
-
-
 </html>
