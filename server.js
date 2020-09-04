@@ -82,7 +82,7 @@ app.post('/detail', (req, res) => {
   const values = [title, poster,vote_average, overview, release_date, username];
   const mySql = `INSERT INTO movies (title, poster, vote_average, overview, release_date, username) VALUES ($1, $2, $3,$4, $5, $6)`;
   client.query(mySql, values)
-    .then( res => {
+    .then( result => {
       res.redirect('/watchlist');
     })
     .catch(error => {
