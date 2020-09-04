@@ -12,8 +12,8 @@
 /* individual divs for each movie */
 .eachMovie{
   /* outline: 2px solid red; */
-  width: 250px;
-  height: 400px;
+  /* width: 250px;
+  height: 400px; */
   text-align: center;
   margin: 125px 10px;
 }
@@ -23,7 +23,7 @@
   width: 100%;
   font-family:'Russo One', sans-serif;
   background-image: url("/images/detail-background-image.jpg");
-  background-size: cover;
+  /* background-size: cover; */
   color: white;
 
 }
@@ -53,8 +53,15 @@
   justify-content: space-evenly;
   padding: 20px 0;
   opacity: 0.9;
+  background-color: black;
 
 } 
+
+.containElementsExceptButton{
+
+  width: 250px;
+  height: 400px;
+}
 
 /* ================================= homepage styling end */
 
