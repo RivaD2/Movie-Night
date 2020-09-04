@@ -65,7 +65,7 @@
 
 .header-container {
   height: 140px;
-  width: calc(100vw - 22px);
+  width: calc(100vw);
   /* there is a padding of 12 px left and right so
   reduce width by 24px*/
   display:flex;
