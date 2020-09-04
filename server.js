@@ -58,20 +58,13 @@ app.get('/detail/:id', (req, res) => {
   //username takes place of id in this case
   const mySql = `SELECT * FROM movies WHERE id=$1;`;
   const id = req.params.id;
-  // now going to be a text input on the form which is no longer in params
-  //'${req.params.id}' removed from mySql to figure out how to get id arg into sql query
-  //I am connecting to the database successfully but there is nothing in it. So I need to get it seeded.
-  console.log(mySql);
   client.query(mySql, [id])
     .then( result => {
-      //const movies = movieObject.find(m => m.id === parseInt(req.params.id));
       if(!result)res.status(404).send('The movie with the given id is not found');
-      console.log(result);
       // send whatever pages/detail needs to render data
       res.render('pages/detail', {movie: result.rows[0]});
     })
     .catch(error => {
-      console.log(error);
       handleError(error, res);
     });
 });
@@ -89,7 +82,7 @@ app.post('/detail', (req, res) => {
   const values = [title, poster,vote_average, overview, release_date, username];
   const mySql = `INSERT INTO movies (title, poster, vote_average, overview, release_date, username) VALUES ($1, $2, $3,$4, $5, $6)`;
   client.query(mySql, values)
-    .then( result => {
+    .then( res => {
       res.redirect('/watchlist');
     })
     .catch(error => {
@@ -106,7 +99,6 @@ app.delete('/watchlist/:id', (req, res) => {
       //const movies = movieObject.find(m => m.id === parseInt(req.params.id));
       if(!result)res.status(404).send('The movie with the given id is not found');
       console.log(result);
-      // send whatever pages/detail needs to render data
       res.redirect('/watchlist');
     })
     .catch(error => {
@@ -162,7 +154,6 @@ function renderWatchlist(req, res){
       res.render('pages/watchlist', {movies: result.rows});
     })
     .catch(error => {
-      console.log(error);
       handleError(error, res);
     });
 }
