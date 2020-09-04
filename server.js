@@ -91,13 +91,6 @@ app.post('/detail', (req, res) => {
   client.query(mySql, values)
     .then( result => {
       res.redirect('/watchlist');
-      //first in my code I had written redirect to pages/watchlist
-      //then I had res.render and changed that after help
-      //Then we changed it to res.redirect again because we need to go to watchlist page
-      // We have to do a redirect to go through the app.get route
-      // The watchlist page is rendering every movie in the database right now
-      // So, on the watchlist, they will have to get username and pass it in to the SQL query
-      // SELECT * FROM movies WHERE username=----we don't have username yet
     })
     .catch(error => {
       handleError(error, res);
