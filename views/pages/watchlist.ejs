@@ -12,10 +12,8 @@
   <%- include('../layout/header') %>
     <div class="watchlist-container">
      
-    
-      <!-- JS for reverse of movies and then run the for loop after array is reversed -->
-
-      <% for(let movie of movies){ %>
+ <% for(let movie of movies){ %>
+  <div class="watchlist-item">
       <h1 class="watchlist-title watchlist-section"><%= movie.title %> (<%= movie.release_date %>)</h1>
       <div class="watchlist-image-container watchlist-section">
         <img src="<%= movie.poster %>" class="watchlist-image">
@@ -34,9 +32,10 @@
       <input type="submit" class="watchlist-delete-button" value="Delete From Watchlist">
     </form>
   </div>
-  </div>
+</div>
   <% } %>
-  
+  <%- include('../layout/footer') %>
+</div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <sript src="watchlist.ejs"></sript>
 
