@@ -23,12 +23,8 @@
       </div>
       
   <div class="watchlist-add watchlist-section">
-    <form action="/watchlist" method="POST">
-      <input type="hidden" name="title" value="<%= movie.title %>">
-      <input type="hidden" name="poster" value="<%= movie.poster %>">
-      <input type="hidden" name="vote_average" value="<%= movie.vote_average %>">
-      <input type="hidden" name="release_date" value="<%= movie.release_date %>">
-      <input type="hidden" name="username" required  value="<%= movie.username %>">
+    <form action="/watchlist/<%= movie.id %>?_method=DELETE" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
       <input type="submit" class="watchlist-delete-button" value="Delete From Watchlist">
     </form>
   </div>

@@ -104,7 +104,23 @@ app.post('/detail', (req, res) => {
     });
 });
 
-
+app.delete('/watchlist/:id', (req, res) => {
+  const mySql = `DELETE FROM movies WHERE id=$1;`;
+  const id = req.params.id;
+  console.log(mySql);
+  client.query(mySql, [id])
+    .then( result => {
+      //const movies = movieObject.find(m => m.id === parseInt(req.params.id));
+      if(!result)res.status(404).send('The movie with the given id is not found');
+      console.log(result);
+      // send whatever pages/detail needs to render data
+      res.redirect('/watchlist');
+    })
+    .catch(error => {
+      console.log(error);
+      handleError(error, res);
+    });
+});
 
 
 function Movie(movieObject){
@@ -144,20 +160,12 @@ function renderHomepage(req,res){
 
 
 function renderWatchlist(req, res){
-  const mySql = `SELECT * FROM movies;`;
-  // const id = req.params.id;
-  //'${req.params.id}' removed from mySql to figure out how to get id arg into sql query
-  //I am connecting to the database successfully but there is nothing in it. So I need to get it seeded.
-  // console.log(mySql);
+  //When database is queried for watchlist, results are in DESC order.
+  //THank you geeksforgeeks.org!
+  const mySql = `SELECT * FROM movies ORDER BY id DESC;`;
   client.query(mySql)
     .then( result => {
-
-      // res.send(result.rows);
-      //const movies = movieObject.find(m => m.id === parseInt(req.params.id));
       if(!result)res.status(404).send('The movie with the given id is not found');
-      // console.log(result);
-      // send whatever pages/detail needs to render data
-      // console.log(result.rows[0]);
       res.render('pages/watchlist', {movies: result.rows});
     })
     .catch(error => {

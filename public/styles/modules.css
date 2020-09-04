@@ -136,28 +136,32 @@
 
 .footer-mn-logo{
   width: 80px;
-  float: left;
-  padding: 0 10px;
-  padding-top: 18px;
-  line-height: 80px;
+  /* This will keep image logo from shifting. Gave other 
+  logo the same class since they are the same size*/
+  flex-grow:0;
+  flex-shrink:0;
+}
+/* When the screen hits max width these styles kick in. 
+We would need to design a different footer layout for a narrow screen design. */
+@media(max-width:640px) {
+  .footer {
+    flex-direction: column;
+    height: initial;
+  }
+  .footer-mn-logo {
+    width: 60px;
+    
+  }
 }
 
 .footer-text{
   color: black;
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-weight: 900;
-  display: inline;
   letter-spacing: 0.1em;
-  line-height: 80px;
+  padding: 0 24px;
 }
 
-.footer-tmbd-logo{
-  width: 80px;
-  float: right;
-  padding: 0 10px;
-  padding-top: 23px;
-  line-height: 80px;
-}
 
 /* ****************** FOOTER CODE ABOVE BY KRYSTIAN */
 
@@ -170,7 +174,8 @@
 }
 
 .watchlist-container {
-
+  min-height: calc(100vh - 140px);
+  box-sizing: border-box;
   min-width: 100vw;
   background-color: rgba(0,0,0,0.8);
   display: flex;
