@@ -12,16 +12,16 @@
 </head>
 <body class="detail-body">
   <div class="detail-container">
-    <%- include('../layout/header') %>
-  <h1 class="detail-title detail-section"><%= movie.title %> (<%= movie.release_date %>)</h1>
-<div class="detail-image-container detail-section">
+     <%- include('../layout/header') %>
+      <h1 class="detail-title detail-section"><%= movie.title %> (<%= movie.release_date %>)</h1>
+    <div class="detail-image-container detail-section">
   <img src="<%= movie.poster %>" class="detail-image">
-</div>
-<div class="detail-rating detail-section">
- Rating <%= movie.vote_average %>
-</div>
-<div class="detail-overview"><%= movie.overview %>
-</div>
+    </div>
+    <div class="detail-rating detail-section">
+      Rating <%= movie.vote_average %>
+   </div>
+   <div class="detail-overview"><%= movie.overview %>
+   </div>
 
 
 <div class="detail-add detail-section">
@@ -35,7 +35,7 @@
     <input type="submit" class="detail-add-button" value="Add to Watchlist">
   </form>
 </div>
-<%- include('../layout/footer') %>
+%- include('../layout/footer') %>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <sript src="detail.ejs"></sript>
