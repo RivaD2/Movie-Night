@@ -1,4 +1,3 @@
-
 <body class="detail-body">
   <div class="detail-container">
     <%- include('../layout/header') %>
@@ -11,7 +10,6 @@
 </div>
 <div class="detail-overview"><%= movie.overview %>
 </div>
-
 <div class="detail-add detail-section">
   <form action="/detail" method="POST">
     <input type="hidden" name="title" value="<%= movie.title %>">
