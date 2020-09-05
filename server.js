@@ -25,6 +25,7 @@ app.use(methodOverride('_method'));
 app.use(express.static('./public'));
 
 //Server
+// The server has to listen first for the requests
 client.connect()
   .then(() => {
     app.listen(PORT, () => console.log(`listening on ${PORT}`));
@@ -44,8 +45,15 @@ function handleError(error, res) {
 /*****************************ROUTES */
 app.get('/detail/:id', (req, res) => {
   //username takes place of id in this case
+  // When a request is made to the server, the server will look for /detail/:id of one movie
+  //Anything after the colon in the route is stored as a parameter
   const mySql = `SELECT * FROM movies WHERE id=$1;`;
   const id = req.params.id;
+  // the request object has a query, params and a body
+  // A query is made in the URL
+  //Params come from the URL but are specified with colons in the route
+  //I assigned params to const for easy use
+
   client.query(mySql, [id])
     .then( result => {
       if(!result)res.status(404).send('The movie with the given id is not found');
@@ -57,17 +65,33 @@ app.get('/detail/:id', (req, res) => {
     });
 });
 
+//This is adding a route of /preview
+// I am sending a body in the request to tell the server what I want to post
 app.post('/preview' , (req, res)=> {
+  //The body is not coming from the URL but from the form submission
+  //All input fields in form are being sent up as the body
+  //Body can only work with POST and PUT
   const movie = req.body;
   res.render('pages/detail', {movie:movie});
 })
 
+//Adding a route of /detail
 app.post('/detail', (req, res) => {
+  //ES6 spread operator used to turn properties of body into variables
+  // Created 6 vars from the properties on the body of the request that comes from the form submission
   const {title, poster,vote_average, overview, release_date, username} = req.body;
   const values = [title, poster,vote_average, overview, release_date, username];
+  //I added new entry into the movies database 
+  // For security, the user provided values (req.body) is NOT included in the SQL command
+  //Instead, the SQL command uses placeholders with $ and the user VALUES are provided separately
   const mySql = `INSERT INTO movies (title, poster, vote_average, overview, release_date, username) VALUES ($1, $2, $3,$4, $5, $6)`;
+  // Below I am querying the database and passing in the SQL command and values as separate args
+  // Passing them in as separate args to prevent someone from including SQL commands in the request.body
+  // username = "riva ); DROP TABLE;"--COMMANDS LIKE THIS WILL NOT BE EXECUTED if values are passed in
+  //Anything that is user provided needs to be in values NOT the SQl statement
   client.query(mySql, values)
     .then( result => {
+      //Sending the response from the form submission to the route that matches /watchlist
       res.redirect('/watchlist');
     })
     .catch(error => {
@@ -75,12 +99,19 @@ app.post('/detail', (req, res) => {
     });
 });
 
+//adding a route using DELETE
+//This will look for a reqest of TYPE DELETE that matches the route of /watchlist/:id
 app.delete('/watchlist/:id', (req, res) => {
+  //I am sending a SQL commands to database that tells it to DELETE one movie from the database
+  //The delete from watchlist button calls the route with an id included
   const mySql = `DELETE FROM movies WHERE id=$1;`;
+  //assigned the params to a const for easy use
   const id = req.params.id;
+  //Sending the mySQL command and the array of user provided values (which is a movie id)
   client.query(mySql, [id])
     .then( result => {
       //const movies = movieObject.find(m => m.id === parseInt(req.params.id));
+      //if there is no id that matches the query, then send the 404 response
       if(!result)res.status(404).send('The movie with the given id is not found');
       res.redirect('/watchlist');
     })
