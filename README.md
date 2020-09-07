@@ -5,7 +5,7 @@ Riva Davidowski, Darius Pasilaban, Krystian Francuz-Harris, Mike Wohl.
 
 # What is Movie Night?
 
-There are too many movies to watch and so many choices across various streaming services. 
+**Problem Domain:** There are too many movies to watch and so many choices across various streaming services. 
 #### How do you choose? 
 
 Movie Night makes it easy for a user to pick a movie from a recommendation list based of ratings. The user can choose which movies to watch based of this list and add them to a watchlist.The project used a public API to get movie data and the user can choose which movies to watch based of this list. They can then add movies to a watchlist using the SQL database and delete them. This app will save you time and make it easy to choose a movie on any given night.
@@ -88,8 +88,9 @@ Once user clicks ‘My Watchlist’, their saved movies are displayed.
 
 Feature Tasks:
 
-User will be able to sort saved movies by genre
+User will be able to sort saved movies by genre.
 User will be able to remove saved movies from watchlist.
+Once user adds a movie to watchlist, this movie will appear first in line.
 
 Acceptance Tasks:
 Once user sorts by genre, saved movies are sorted by correct genre.
