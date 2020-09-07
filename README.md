@@ -8,7 +8,7 @@ Riva Davidowski, Darius Pasilaban, Krystian Francuz-Harris, Mike Wohl.
 **Problem Domain:** There are too many movies to watch and so many choices across various streaming services. 
 #### How do you choose? 
 
-Movie Night makes it easy for a user to pick a movie from a recommendation list based of ratings. The user can choose which movies to watch based of this list and add them to a watchlist.The project used a public API to get movie data and the user can choose which movies to watch based of this list. They can then add movies to a watchlist using the SQL database and delete them. This app will save you time and make it easy to choose a movie on any given night.
+Movie Night makes it easy for a user to pick a movie from a recommendation list based of ratings. The user can choose which movies to watch based of this list and add them to a watchlist.The project used a public API to get movie data and the user can choose which movies to watch based of this list. They can then add movies to the watchlist and delete movies from the watchlist. This involved setting up a server, using various SQL commands, creating GET and POST routes and storing data in a database. This app will save you time and make it easy to choose a movie on any given night.
 
 ---
 
