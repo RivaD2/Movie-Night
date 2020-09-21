@@ -1,0 +1,51 @@
+.login-body {
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6),url("/images/detail-background-image.jpg"));
+    background-size: cover;
+    background-position:center;
+    font-family:'Russo One', sans-serif;
+    color: white;
+    height:100vh;
+}
+
+.login-page {
+    width: 350px;
+    padding: 10% 0 0;
+    margin: auto;
+}
+
+.form {
+    position:relative;
+    z-index:1;
+    background-color: rgba(113, 114, 121, 0.8);
+    max-width: 360px;
+    margin: 0 auto;
+    padding: 45px;
+    text-align:center;
+}
+
+.form input {
+    width:100%;
+    background: rgb(233, 233, 173);
+    border:0;
+    margin: 0 0 15px;
+    padding: 15px;
+    outline:1;
+    box-sizing: border-box;
+    font-size:14px;
+}
+
+.login-button {
+    width: 260px;
+    height: 60px;
+    border: solid 2px rgb(230, 222, 222);
+    background-color: rgba(25, 25, 25, 0.4);
+    color: rgb(230, 222, 222);
+    padding: 8px 20px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.login-button:hover{
+    border-color:rgb(31, 174, 231);
+    color:rgb(31, 174, 231);
+    background-color: black;
+}
