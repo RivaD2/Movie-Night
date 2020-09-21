@@ -6,6 +6,8 @@ const cors = require('cors');
 const superagent = require('superagent');
 const pg = require('pg');
 require('dotenv').config();
+const bcrypt = require('bcrypt');
+
 
 //Global Vars
 const PORT=process.env.PORT ||3003;
@@ -23,6 +25,8 @@ app.use(cors());
 app.use(express.static('./public'));
 app.use(methodOverride('_method'));
 app.use(express.static('./public'));
+app.use(express.json());
+
 
 //Server
 // The server has to listen first for the requests
@@ -155,3 +159,47 @@ function renderWatchlist(req, res){
 function renderAboutPage(req, res){
   res.render('pages/about');
 }
+
+
+//CODE FOR USER AUTH/PASSWORD LOGIN
+
+const users = [];
+app.get('/users',(req,res) => {
+  res.json(users)
+});
+
+app.post('/users', async (req,res)=> {
+  try {
+    const hashedPassword = await bcrypt.hash(req.body.password,10);
+    console.log(salt);
+    console.log(hashedPassword);
+    const user = {name:req.body.name, password: hashedPassword};
+    users.push(user);
+    res.status(201).send();
+} catch {
+  res.status(500).send();
+  };
+
+});
+
+app.post('/users/login', async (req, res)=> {
+  const user = users.find(user => user.name = req.body.name);
+  if(user === null) {
+    return res.status(400).send('Unable to find user')
+  }
+  //comparison for password
+  try {
+    //pass it the intial password and then hashed password
+    //This will compare and get salt and make sure hashed version equals the same thing
+    if(await bcrypt.compare(req.body.password, user.password)){
+      //will return true or false
+      //if it is true then user is logged in
+      res.send('Success');
+    } else {
+      //if passwords are not the same, then this will happen
+      res.send('Not Allowed');
+    }
+  } catch {
+    res.status(500).send()
+  }
+})
