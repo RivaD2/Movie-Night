@@ -1,6 +1,9 @@
 {
   "name": "movie-night",
   "version": "1.0.0",
+  "engines": {
+    "node": "v14.11.0"
+  },
   "description": "Riva Davidowski, Darius Pasilaban, Krystian Francuz-Harris, Mike Wohl.",
   "main": "server.js",
   "dependencies": {
@@ -9,31 +12,25 @@
     "ejs": "^3.1.5",
     "express": "^4.17.1",
     "method-override": "^3.0.0",
-    "nodemon": "^2.0.4",
     "pg": "^8.3.3",
     "postgres": "^1.0.2",
     "superagent": "^6.1.0"
   },
-  "devDependencies": {
-    "concurrently": "^4.1.1",
-    "nodemon": "^1.19.1"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "client": "npm run start --prefix client",
     "server": "nodemon server.js",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/team-squirtle-301d65/Movie-Night.git"
+    "url": "git+https://github.com/RivaD2/Movie-Night"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/team-squirtle-301d65/Movie-Night/issues"
   },
-  "homepage": "https://github.com/team-squirtle-301d65/Movie-Night#readme"
+  "homepage": "https://github.com/RivaD2/Movie-Night/blob/master/README.md"
 }
