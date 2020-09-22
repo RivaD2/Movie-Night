@@ -39,6 +39,9 @@ client.connect()
 app.get('/', renderHomepage);
 app.get('/watchlist', renderWatchlist);
 app.get('/about', renderAboutPage);
+app.get('/login', (req, res) => {
+  res.redirect('pages/login');
+})
 
 // Functions
 function handleError(error, res) {
@@ -203,3 +206,6 @@ app.post('/users/login', async (req, res)=> {
     res.status(500).send()
   }
 })
+//saved hashed password into database
+//upon sign up, how to save password into database
+//upon sign in how to decrypt and compare what the password entered vs hashed
