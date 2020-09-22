@@ -1,6 +1,37 @@
 # Movie Night
+## This project was a group final project for 301. After 301 ended, I decided to take this project up a notch by including user authentication and ability for users to search the API for any movie, not just the ones provided on our reccommendations list. 
 
-Riva Davidowski, Darius Pasilaban, Krystian Francuz-Harris, Mike Wohl.
+**Original Group:Group Riva Davidowski, Darius Pasilaban, Krystian Francuz-Harris, Mike Wohl.**
+**Contributions after Sept. 4th were done by Riva Davidowski
+
+### TOOLS USED:
+* Node.js
+* The Movie Database(TMDb)for interacting with the API
+* Heroku for deploying the final app
+* Express
+* Bcrypt for user authentication
+
+### GETTING STARTED
+* Run npm i to install all dependencies ( I cloned this project down to my repo)
+* Set up all packages in server.js
+* Create a .env with PORT, DB_URL,and API_KEY (more to come on this one as I use bcrypt)
+* Set up all global vars and configs
+* Set up the server and tell it to first listen for requests:
+```
+client.connect()
+  .then(() => {
+    app.listen(PORT, () => console.log(`listening on ${PORT}`));
+  });
+  ```
+* create test route to make sure server is listening on correct port
+* run Nodemon in terminal to start server
+* create Schema.sql and create schema for movies using DROP TABLE
+* run psql and create database and movies table:
+  * CREATE DATABASE _database name_
+  * connect to database with \c __database name__
+  * #ID SERIAL PRIMARY KEY,
+    (enter all data to match movie constructor)
+  Run SQL files by conecting them to database psql -d _database name_ -f schema.sql
 
 
 # What is Movie Night?
