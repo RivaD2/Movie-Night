@@ -1,5 +1,5 @@
 # Movie Night
-## This project was a group final project for 301. After 301 ended, I decided to take this project up a notch by including user authentication and ability for users to search the API for any movie, not just the ones provided on our reccommendations list. 
+## This project was a group final project for 301. After 301 ended, I decided to take this project up a notch by including user authentication and ability for users to search the API for any movie, not just the ones provided on our recommendations list. I also added the ability for users to sort movies based off genre. 
 
 **Original Group:Group Riva Davidowski, Darius Pasilaban, Krystian Francuz-Harris, Mike Wohl.**
 **Contributions after Sept. 4th were done by Riva Davidowski
@@ -32,7 +32,7 @@ client.connect()
   * #ID SERIAL PRIMARY KEY,
     (enter all data to match movie constructor)
   Run SQL files by conecting them to database psql -d _database name_ -f schema.sql
-
+* create a separate instance of app on Heroku since app was cloned down to repo
 
 # What is Movie Night?
 
