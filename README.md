@@ -7,7 +7,7 @@
 
 ### TOOLS USED:
 * Node.js
-* The Movie Database(TMDb)for interacting with the API
+* The Movie Database(TMDb)for access to the API
 * Heroku for deploying the final app
 * Express
 * Bcrypt for user authentication
