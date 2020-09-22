@@ -2,7 +2,8 @@
 ## This project was a group final project for 301. After 301 ended, I decided to take this project up a notch by including user authentication and ability for users to search the API for any movie, not just the ones provided on our recommendations list. I also added the ability for users to sort movies based off genre. 
 
 **Original Group:Riva Davidowski, Darius Pasilaban, Krystian Francuz-Harris, Mike Wohl.**
-**Contributions after Sept. 4th were done by Riva Davidowski
+
+**Contributions after Sept. 4th were done by Riva Davidowski**
 
 ### TOOLS USED:
 * Node.js
