@@ -40,7 +40,7 @@ app.get('/', renderHomepage);
 app.get('/watchlist', renderWatchlist);
 app.get('/about', renderAboutPage);
 app.get('/login', (req, res) => {
-  res.redirect('pages/login');
+  res.render('pages/login');
 })
 
 // Functions
