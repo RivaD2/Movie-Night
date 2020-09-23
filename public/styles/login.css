@@ -10,11 +10,11 @@
 .login-page {
     width: 350px;
     padding: 10% 0 0;
-    margin: auto;
+    margin: 0 auto;
 }
 
 .form {
-    position:relative;
+    position:top;
     z-index:1;
     background-color: rgba(113, 114, 121, 0.8);
     max-width: 360px;
@@ -48,4 +48,9 @@
     border-color:rgb(31, 174, 231);
     color:rgb(31, 174, 231);
     background-color: black;
+}
+
+.message {
+    padding-top: 30px;
+    padding-bottom:20px;
 }
