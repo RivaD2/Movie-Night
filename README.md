@@ -1,7 +1,7 @@
 # Movie Night
-## This project was a group final project. I decided to take this project up a notch by including user authentication and ability for users to search the API for any movie, not just the ones provided on our recommendations list. I also added the ability for users to sort movies based off genre. 
+### This project was a group final project. I decided to take this project up a notch by including user authentication and ability for users to search the API for any movie, not just the ones provided on our recommendations list. I also added the ability for users to sort movies based off genre. 
 
-## Current State: Authentication and authorization are in progress along with the ability to sort moviees based off genere. The user still has the ability to add and delete movies. 
+#### Current State: Authentication and authorization are in progress along with the ability to sort moviees based off genere. The user still has the ability to add and delete movies. 
 
 **Original Group:Riva Davidowski, Darius Pasilaban, Krystian Francuz-Harris, Mike Wohl.**
 
