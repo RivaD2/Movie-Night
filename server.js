@@ -10,7 +10,7 @@ const bcrypt = require('bcrypt');
 
 
 //Global Vars
-const PORT=process.env.PORT ||3003;
+const PORT=process.env.PORT || 3003;
 const app = express();
 const methodOverride = require('method-override');
 const DATABASE_URL = process.env.DATABASE_URL;

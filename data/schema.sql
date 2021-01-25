@@ -7,8 +7,6 @@ CREATE TABLE movies(
   vote_average VARCHAR(255),
   overview TEXT,
   release_date TEXT,
-  username VARCHAR(255),
-  password VARCHAR(255),
 );
 
-
+CREATE TABLE users()
