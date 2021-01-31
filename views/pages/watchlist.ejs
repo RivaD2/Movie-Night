@@ -21,7 +21,7 @@
         Rating <%= movie.vote_average %>
       </div>   
   <div class="watchlist-add watchlist-section">
-    <form action="/watchlist/<%= movie.id %>?_method=DELETE" method="POST">
+    <form action="/watchlist/<%= movie._id %>?_method=DELETE" method="POST">
       <input type="hidden" name="_method" value="DELETE">
       <input type="submit" class="watchlist-delete-button" value="Delete From Watchlist">
     </form>
