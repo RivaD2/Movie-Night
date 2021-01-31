@@ -53,7 +53,6 @@ function handleError(error, res) {
 
 /*****************************ROUTES */
 app.get('/detail/:id', (req, res) => {
-  const mySql = `SELECT * FROM movies WHERE id=$1;`;
   const id = req.params.id;
 
   axios.get(`/${id}`)
@@ -73,34 +72,31 @@ app.post('/preview' , (req, res)=> {
 })
 
 app.post('/detail', (req, res) => {
-  // const {title, poster,vote_average, overview, release_date, username} = req.body;
-  // const values = [title, poster,vote_average, overview, release_date, username];
-  // const mySql = `INSERT INTO movies (title, poster, vote_average, overview, release_date, username) VALUES ($1, $2, $3,$4, $5, $6)`;
-
   axios.post('', req.body)
     .then(result => {
       //Sending the response from the form submission to the route that matches /watchlist
       res.redirect('/watchlist');
     })
     .catch(error => {
-      console.log('error in post to detail', error);
       handleError(error, res);
     });
 });
 
-// app.delete('/watchlist/:id', (req, res) => {
-//   const mySql = `DELETE FROM movies WHERE id=$1;`;
-//   const id = req.params.id;
-//   //Sending the mySQL command and the array of user provided values (which is a movie id)
-//   client.query(mySql, [id])
-//     .then( result => {
-//       if(!result)res.status(404).send('The movie with the given id is not found');
-//       res.redirect('/watchlist');
-//     })
-//     .catch(error => {
-//       handleError(error, res);
-//     });
-// });
+app.delete('/watchlist/:id', (req, res) => {
+  console.log(req.params.id);
+  const id = req.params.id;
+  //Sending the mySQL command and the array of user provided values (which is a movie id)
+  axios.delete(`${id}`)
+    .then( result => {
+      console.log('in delete', result);
+      if(!result)res.status(404).send('The movie with the given id is not found');
+      res.redirect('/watchlist');
+    })
+    .catch(error => {
+      console.log('error in delete', error);
+      handleError(error, res);
+    });
+});
 
 function Movie(movieObject){
   this.title = movieObject.title;
@@ -115,7 +111,6 @@ function renderHomepage(req,res){
   const movieSearchUrl =  `https://api.themoviedb.org/3/discover/movie/?certification_country=US&sort_by=vote_average&api_key=${API_KEY}&vote_count.gte=15&vote_average.gte=8&primary_release_date.gte=2018-01-01`;
   axios.get(movieSearchUrl)
     .then(APIMovieData => {
-      console.log('in renderHomepage', APIMovieData);
       const movieArr = APIMovieData.data.results.map(movieData => new Movie(movieData));
       res.render('pages/index.ejs', { movies : movieArr});
     })
@@ -123,11 +118,9 @@ function renderHomepage(req,res){
 }
 
 function renderWatchlist(req, res){
-  console.log('fetching watchlist', req.params);
   //Thank you geeksforgeeks.org!
   axios.get(req.params.id)
     .then( result => {
-      console.log('in renderWatchlist', result);
       if(!result)res.status(404).send('The movie with the given id is not found');
       res.render('pages/watchlist', {movies: result.data});
     })
@@ -151,7 +144,6 @@ app.get('/users',(req,res) => {
 app.post('/users', async (req,res)=> {
   try {
     const hashedPassword = await bcrypt.hash(req.body.password,10);
-    console.log(salt);
     console.log(hashedPassword);
     const user = {name:req.body.name, password: hashedPassword};
     users.push(user);
