@@ -7,7 +7,9 @@ const cors = require('cors');
 const pg = require('pg');
 require('dotenv').config();
 const bcrypt = require('bcrypt');
-const axios = require('axios');
+// const axios = require('axios');
+const api = require('./api');
+const axios = api.instance;
 
 //Global Vars
 const PORT=process.env.PORT || 3003;
@@ -69,36 +71,37 @@ app.post('/preview' , (req, res)=> {
   const movie = req.body;
   res.render('pages/detail', {movie:movie});
 })
-/*
-app.post('/detail', (req, res) => {
-  const {title, poster,vote_average, overview, release_date, username} = req.body;
-  const values = [title, poster,vote_average, overview, release_date, username];
-  const mySql = `INSERT INTO movies (title, poster, vote_average, overview, release_date, username) VALUES ($1, $2, $3,$4, $5, $6)`;
 
-  client.query(mySql, values)
-    .then( result => {
+app.post('/detail', (req, res) => {
+  // const {title, poster,vote_average, overview, release_date, username} = req.body;
+  // const values = [title, poster,vote_average, overview, release_date, username];
+  // const mySql = `INSERT INTO movies (title, poster, vote_average, overview, release_date, username) VALUES ($1, $2, $3,$4, $5, $6)`;
+
+  axios.post('', req.body)
+    .then(result => {
       //Sending the response from the form submission to the route that matches /watchlist
       res.redirect('/watchlist');
     })
     .catch(error => {
+      console.log('error in post to detail', error);
       handleError(error, res);
     });
 });
 
-app.delete('/watchlist/:id', (req, res) => {
-  const mySql = `DELETE FROM movies WHERE id=$1;`;
-  const id = req.params.id;
-  //Sending the mySQL command and the array of user provided values (which is a movie id)
-  client.query(mySql, [id])
-    .then( result => {
-      if(!result)res.status(404).send('The movie with the given id is not found');
-      res.redirect('/watchlist');
-    })
-    .catch(error => {
-      handleError(error, res);
-    });
-});
-*/
+// app.delete('/watchlist/:id', (req, res) => {
+//   const mySql = `DELETE FROM movies WHERE id=$1;`;
+//   const id = req.params.id;
+//   //Sending the mySQL command and the array of user provided values (which is a movie id)
+//   client.query(mySql, [id])
+//     .then( result => {
+//       if(!result)res.status(404).send('The movie with the given id is not found');
+//       res.redirect('/watchlist');
+//     })
+//     .catch(error => {
+//       handleError(error, res);
+//     });
+// });
+
 function Movie(movieObject){
   this.title = movieObject.title;
   this.poster = 'https://image.tmdb.org/t/p/w600_and_h900_bestv2' + movieObject.poster_path;
@@ -120,11 +123,13 @@ function renderHomepage(req,res){
 }
 
 function renderWatchlist(req, res){
+  console.log('fetching watchlist', req.params);
   //Thank you geeksforgeeks.org!
   axios.get(req.params.id)
     .then( result => {
+      console.log('in renderWatchlist', result);
       if(!result)res.status(404).send('The movie with the given id is not found');
-      res.render('pages/watchlist', {movies: result.rows});
+      res.render('pages/watchlist', {movies: result.data});
     })
     .catch(error => {
       handleError(error, res);

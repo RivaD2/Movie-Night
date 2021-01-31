@@ -1,6 +1,6 @@
 const axios = require('axios');
 const instance = axios.create({
-  baseURL: `https://localhost:3002/movies`,
+  baseURL: `http://localhost:3001/movies`,
   mode: 'cors',
   cache: 'no-cache',
 headers: { 'Content-Type': 'application/json' , 'Access-Control-Allow-Origin': '*'}
@@ -37,5 +37,6 @@ module.exports = {
   getMovie,
   addMovie,
   updateMovie,
-  deleteMovie
+  deleteMovie,
+  instance
 }
