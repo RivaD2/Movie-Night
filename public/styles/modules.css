@@ -131,7 +131,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: rgba(242, 242, 243, 0.945);
+  background-color: rgba(98, 98, 100, 0.413);
   margin-top: 5px;
   position: bottom;
   bottom:0; left:0; right:0;
@@ -159,12 +159,15 @@ We would need to design a different footer layout for a narrow screen design. */
 }
 
 .footer-text{
-  color: black;
+  color: rgb(211, 208, 208);
+  font-size:9pt;
   font-family: Georgia, 'Times New Roman', Times, serif;
-  font-weight: 900;
   letter-spacing: 0.1em;
-  padding: 0 24px;
+  padding: 0 48px;
+  flex-grow:1;
+  text-align:center;
 }
+
 
 /* ****************** FOOTER CODE ABOVE BY KRYSTIAN */
 
