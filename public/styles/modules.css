@@ -47,8 +47,8 @@
 }
 
 .detail-add-button {
-  width: 260px;
-  height: 60px;
+  width: 200px;
+  height: 40px;
   border: solid 2px rgb(230, 222, 222);
   background-color: rgba(25, 25, 25, 0.4);
   color: rgb(230, 222, 222);
@@ -270,7 +270,7 @@ We would need to design a different footer layout for a narrow screen design. */
 
 .eachMovie{
   text-align: center;
-  margin: 125px 10px;
+  margin: 100px 10px 40px 10px;
 }
 
 .homepage-body{
@@ -281,12 +281,13 @@ We would need to design a different footer layout for a narrow screen design. */
 }
 
 .homepage-h1{
-  font-size: 50pt;
+  font-size: 30pt;
   text-align: center;
   font-family: 'Russo One', sans-serif;
   color: white;
-  margin-top: 50px;
+  margin-top: 10px;
   -webkit-text-stroke: 2px rgb(31, 174, 231);
+  flex-basis:100%;
 }
 
 .homepage-imgs{
