@@ -1,6 +1,7 @@
 const axios = require('axios');
+const MONGODB_URI = process.env.MONGODB_URI;
 const instance = axios.create({
-  baseURL: `http://localhost:3001/movies`,
+  baseURL: MONGODB_URI,
   mode: 'cors',
   cache: 'no-cache',
 headers: { 'Content-Type': 'application/json' , 'Access-Control-Allow-Origin': '*'}
