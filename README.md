@@ -1,31 +1,40 @@
 # Movie Night
-### This project was a group final project. I decided to take this project up a notch by including user authentication and ability for users to search the API for any movie, not just the ones provided on our recommendations list. I also added the ability for users to sort movies based off genre. 
 
-#### Current State: Authentication and authorization are in progress along with the ability to sort moviees based off genere. The user still has the ability to add and delete movies. 
+## This project was a group final project. I decided to take this project up a notch by including user authentication and ability for users to search the API for any movie, not just the ones provided on our recommendations list. I also added the ability for users to sort movies based off genre.
 
-**Original Group:Riva Davidowski, Darius Pasilaban, Krystian Francuz-Harris, Mike Wohl.**
+## Future goals: Authentication and authorization and the ability to sort movies based off genre. The user still has the ability to add and delete movies currently.
+
+**Original Authors:Riva Davidowski, Darius Pasilaban, Krystian Francuz-Harris, Mike Wohl.**
 
 **Contributions after Sept. 4th were done by Riva Davidowski**
 
 ### TOOLS USED:
 * Node.js
+* postgreSQL (used in earlier version)
+* MONGODB (current DB)
 * The Movie Database(TMDb)for access to the API
 * Heroku for deploying the final app
 * Express
-* Bcrypt for user authentication
+* Bcrypt for user authentication(after project completion, I wanted to get some practice using Bcrypt and decided to keep this logic for a future addition)
+
+### LANGUAGES USED:
+- EJS
+- JavaScript
 
 ### GETTING STARTED
-* Run npm i to install all dependencies ( I cloned this project down to my repo)
+* Run npm i to install all dependencies
 * Set up all packages in server.js
-* Create a .env with PORT, DB_URL,and API_KEY (more to come on this one as I use bcrypt)
+* Create a .env with PORT, DB_URL,and API_KEY
 * Set up all global vars and configs
 * Set up the server and tell it to first listen for requests:
+
 ```
 client.connect()
   .then(() => {
     app.listen(PORT, () => console.log(`listening on ${PORT}`));
   });
   ```
+
 * create test route to make sure server is listening on correct port
 * run Nodemon in terminal to start server
 * create Schema.sql and create schema for movies using DROP TABLE
@@ -34,12 +43,12 @@ client.connect()
   * connect to database with \c __database name__
   * #ID SERIAL PRIMARY KEY,
     (enter all data to match movie constructor)
-  Run SQL files by conecting them to database psql -d _database name_ -f schema.sql
+  Run SQL files by connecting them to database psql -d _database name_ -f schema.sql
 * create a separate instance of app on Heroku since app was cloned down to repo
 
 # What is Movie Night?
 
-**Problem Domain:** There are too many movies to watch and so many choices across various streaming services. 
+**Problem Domain:** There are too many movies to watch and so many choices across various streaming services.
 #### How do you choose? 
 
 Movie Night makes it easy for a user to pick a movie from a recommendation list based of ratings. The user can choose which movies to watch based of this list and add them to a watchlist.The project used a public API to get movie data and the user can choose which movies to watch based of this list. They can then add movies to the watchlist and delete movies from the watchlist. This involved setting up a server, using various SQL commands, creating GET and POST routes and storing data in a database. This app will save you time and make it easy to choose a movie on any given night.
