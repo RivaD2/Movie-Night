@@ -16,9 +16,6 @@ const PORT=process.env.PORT || 3003;
 const app = express();
 const methodOverride = require('method-override');
 const API_KEY = process.env.API_KEY;
-// const client = new pg.Client(DATABASE_URL)
-// client.on('error', error => console.error(error));
-
 
 //Configs
 app.set('view engine', 'ejs');
